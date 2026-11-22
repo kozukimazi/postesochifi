@@ -1,0 +1,66 @@
+\begin{block}{Modified Gravity and Simulations}
+\vspace{-3ex}
+  \begin{columns}[t]
+    \begin{column}{0.47\linewidth}
+      \justify
+      The $f(R)$ self-accelerated gravity models replace the cosmological constant in Hilbert-Einstein action in the following way:\\
+      \begin{equation}
+  S = \int d^4x\sqrt{-g}\Big( \frac{R+f(R)}{2\kappa^2} + \mathcal{L}_m \Big)\text{.}
+\end{equation}
+      The Hu-Sawicki gravity (HS) is particularly useful for clustering comparisons, since \textbf{it shares the same background history} as $\Lambda$CDM, and its deviation from it can be parameterized with a single constrainable value: $f_{R0}$
+      
+      \begin{equation}
+        f(R)=-6 \Omega_{\mathrm{DE}, 0} \frac{H_0^2}{c^2}+\left|\boldsymbol{f_{R 0}}\right| \frac{\bar{R}_0^2}{R}+\ldots
+      \end{equation}
+    \end{column}
+    
+    
+    \hfill % Automatically creates an even gap between the two columns
+    
+    \begin{column}{0.47\linewidth}
+      \justify
+      We use the \textbf{Quijote Simulations} \cite{Quijote_sims} suite of N-body simulations for machine learning to obtain $P(k)$ measurements and their covariances for 2048 combinations of these parameters.
+
+      
+      \begin{columns}[T]
+        \begin{column}{0.48\linewidth}
+          \vspace{0pt}
+          \begin{table}
+            \centering
+            \renewcommand{\arraystretch}{1.2}
+            $\begin{array}[t]{r c l}
+              \Omega_{\mathrm{m}} & \in & [0.10; 0.50] \\
+              \Omega_{\mathrm{b}} & \in & [0.03; 0.07] \\
+              h & \in & [0.50; 0.90] \\
+              n_s & \in & [0.80; 1.20] \\
+              \sigma_8(GR) & \in & [0.60; 1.00] \\
+              f_{R0} & \in & [-3 \times 10^{-4}; 0]
+            \end{array}$
+            \caption{Parameters for the HS simulations.}
+          \end{table}
+        \end{column}
+        
+        \begin{column}{0.48\linewidth}
+          \vspace{0pt}
+          \begin{table}
+            \centering
+            \renewcommand{\arraystretch}{1.2}
+            $\begin{array}[t]{r c l}
+              \Omega_{\mathrm{m}} & \in & [0.10; 0.50] \\
+              \Omega_{\mathrm{b}} & \in & [0.02; 0.08] \\
+              h & \in & [0.50; 0.90] \\
+              n_s & \in & [0.80; 1.20] \\
+              \sigma_8 & \in & [0.60; 1.00]\\
+              &&
+            \end{array}$
+            \caption{Parameters for the \lcdm simulations.}
+          \end{table}
+        \end{column}
+      \end{columns}
+      
+      
+    \end{column}
+  \end{columns}
+\vspace{-1.2ex}
+\end{block}
+    

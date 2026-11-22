@@ -1,0 +1,160 @@
+% Kyb theme based on Gemini theme
+% https://github.com/anishathalye/gemini
+
+% ====================
+% Definitions
+% ====================
+
+% base kyb logo color: #006b66ff
+% in rgb: 0, 108, 102
+
+\input{colors.tex}
+
+
+% ====================
+% Theme
+% ====================
+
+% Basic colors
+\setbeamercolor{palette primary}{fg=black,bg=white}
+\setbeamercolor{palette secondary}{fg=black,bg=white}
+\setbeamercolor{palette tertiary}{bg=black,fg=white}
+\setbeamercolor{palette quaternary}{fg=black,bg=white}
+\setbeamercolor{structure}{fg=black}
+
+% Headline
+% \setbeamercolor{headline}{fg=mauve,bg=white}
+\setbeamercolor{headline}{fg=white,bg=}
+\setbeamercolor{headline rule}{bg=}
+
+% Block
+\setbeamercolor{block title}{fg=text,bg=crema}
+\setbeamercolor{block separator}{bg=}
+\setbeamercolor{block body}{fg=text,bg=crema}
+
+% Alert Block
+\setbeamercolor{block alerted title}{fg=text,bg=}
+\setbeamercolor{block alerted separator}{bg=}
+\setbeamercolor{block alerted body}{fg=white,bg=}
+
+
+% Example Block
+\setbeamercolor{block example title}{fg=text,bg=lightgray}
+\setbeamercolor{block example separator}{bg=}
+\setbeamercolor{block example body}{fg=black,bg=lightgray}
+
+% Heading
+\setbeamercolor{heading}{fg=black}
+
+% Itemize
+\setbeamercolor{item}{fg=black}
+
+\setbeamertemplate{block begin}{
+  \begin{tcolorbox}[
+    enhanced,
+    title=\insertblocktitle,
+    attach title to upper={\par\vspace{1ex}},
+    %attach title to upper={\par\vspace{0ex}{\color{dark_rose}\rule{\linewidth}{2pt}}\par\vspace{1ex}},
+    arc=15pt,
+    frame hidden,
+    opacityframe=0,
+    boxrule=0pt,
+    titlerule=0pt,
+    colback=on_primary_container,
+    colbacktitle=on_primary_container,
+    coltitle=on_primary,
+    coltext=on_primary,
+    opacityback=1,
+    opacitybacktitle=1,
+    fonttitle=\usebeamerfont{block title}\bookerlyfont\fontsize{40}{30},
+    fontupper=\fontsize{29}{34}\selectfont,
+    left=2ex,
+    right=2ex,
+    top=2ex,
+    bottom=2ex,
+    toptitle=2ex,
+    bottomtitle= 1ex,
+    %borderline={2pt}{12pt}{dark_rose},
+    fuzzy shadow={0pt}{0pt}{-10pt}{5pt}{black, opacity=0.6}
+  ]
+}
+
+\setbeamertemplate{block end}{
+  \end{tcolorbox}
+  \vspace{2ex}
+}
+\setbeamertemplate{block alerted begin}{
+  \begin{tcolorbox}[
+    enhanced,
+    title=\insertblocktitle,
+    attach title to upper={\par\vspace{1ex}},
+    arc=15pt,
+    boxrule=6pt,
+    % frame hidden,
+    titlerule=0pt,
+    colback=on_secondary_container,
+    colbacktitle=on_secondary_container,
+    colframe=tertiary,
+    % interior style={left color=tertiary, right color=secondary, shading angle=62},
+    coltitle=on_secondary,
+    coltext=on_secondary,
+    opacityback=1,
+    opacitybacktitle=1,
+    fonttitle=\usebeamerfont{block title}\bookerlyfont,
+    left=2ex,
+    right=2ex,
+    top=2ex,
+    bottom=2ex,
+    toptitle=2ex,
+    bottomtitle= 1ex,
+    %borderline={2pt}{12pt}{dark_rose},
+    fuzzy shadow={0pt}{0pt}{-15pt}{5pt}{tertiary, opacity=1}
+  ]
+}
+
+\setbeamertemplate{block alerted end}{
+  \end{tcolorbox}
+  \vspace{2ex}
+}
+
+
+\setbeamertemplate{headline}{
+  \vspace{8ex}
+  \begin{center}
+    \begin{tcolorbox}[
+      enhanced,
+      width=0.90\paperwidth,
+      arc=35pt,
+      boxrule=0pt,
+      frame hidden,
+      opacityframe=0,
+      colback=on_primary_fixed,
+      opacityback=1,
+      top=6ex,
+      bottom=4ex,
+      halign=center,
+      %borderline={4pt}{12pt}{white},
+      fuzzy shadow={0pt}{0pt}{-10pt}{5pt}{black, opacity=0.6}
+    ]
+      {\usebeamercolor[on_background]{title}\bookerlyfont\fontsize{60}{70}\bfseries\selectfont\spaceskip=0.5em\relax\inserttitle\par}
+      \vspace{3ex}
+      {\color{on_background}\rule{0.6\linewidth}{4pt}\par}
+      \vspace{1.5ex}
+      {\usebeamerfont{author}\usebeamercolor[on_background]{author}\fontsize{35}{48}\selectfont\insertauthor\par}
+      \vspace{1.5ex}
+      {\usebeamerfont{institute}\usebeamercolor[on_background]{institute}\fontsize{26}{20}\selectfont\insertinstitute\par}
+    \end{tcolorbox}
+  \end{center}
+  \vspace{3ex}
+}
+
+% Bibliography
+\setbeamercolor{bibliography item}{fg=black}
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=black}
+\setbeamercolor{bibliography entry location}{fg=black}
+\setbeamercolor{bibliography entry note}{fg=black}
+\setbeamertemplate{bibliography entry article}{}
+\setbeamertemplate{bibliography entry title}{}
+\setbeamertemplate{bibliography entry location}{}
+\setbeamertemplate{bibliography entry note}{}

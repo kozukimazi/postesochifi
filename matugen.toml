@@ -1,0 +1,6 @@
+[config]
+
+[templates.latex]
+input_path = "color_template.tex"
+output_path = "colors.tex"
+post_hook = "sed -i 's/{ /{/g; s/ }/}/g' colors.tex"

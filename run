@@ -1,0 +1,62 @@
+#!/bin/bash
+
+BLUR=0
+THEME="dark"
+INDEX=0
+INPUT_ARG=""
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -b|--blur)
+            BLUR=1
+            shift
+            ;;
+        -l|--light)
+            THEME="light"
+            shift
+            ;;
+        -d|--dark)
+            THEME="dark"
+            shift
+            ;;
+        -i|--index)
+            INDEX="$2"
+            shift 2
+            ;;
+        *)
+            INPUT_ARG="$1"
+            shift
+            ;;
+    esac
+done
+
+INPUT_FILE="Backgrounds/${INPUT_ARG#Backgrounds/}"
+CONFIG_FILE="matugen.toml"
+TEMP_PNG=$(mktemp --suffix=.png)
+
+if [[ "$INPUT_FILE" == *.pdf ]]; then
+    pdftoppm -png -f 1 -l 1 -r 300 "$INPUT_FILE" "${TEMP_PNG%.*}"
+    mv "${TEMP_PNG%.*}-1.png" "$TEMP_PNG"
+elif [[ "$INPUT_FILE" == *.svg ]]; then
+    magick -density 300 -background none "$INPUT_FILE" "$TEMP_PNG"
+else
+    cp "$INPUT_FILE" "$TEMP_PNG"
+fi
+
+matugen image "$TEMP_PNG" -c "$CONFIG_FILE" -m "$THEME" --source-color-index "$INDEX"
+
+rm "$TEMP_PNG"
+
+rm -f Backgrounds/active_background.*
+
+EXT="${INPUT_FILE##*.}"
+
+if [[ $BLUR -eq 1 ]]; then
+    magick "$INPUT_FILE" -blur 0x3 -quality 85 "Backgrounds/active_background.$EXT"
+else
+    cp "$INPUT_FILE" "Backgrounds/active_background.$EXT"
+fi
+
+lualatex poster.tex > compilation.log
+
+rm -f poster.aux poster.log poster.nav poster.out poster.snm poster.toc poster.bbl poster.blg poster.synctex.gz poster.bcf poster.run.xml
